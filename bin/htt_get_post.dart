@@ -1,15 +1,18 @@
 import 'dart:convert';
-
-import 'package:htt_get_post/models/user_model.dart';
 import 'package:http/http.dart' as http;
 
 void main(List<String> args) async {
-  String baseUrl = "https://dummyjson.com/todos/user/5";
-  Uri uri = Uri.parse("$baseUrl");
-  http.Response response2 = await http.get(uri);
-  TodoModel todos = TodoModel.fromJson(jsonDecode(response2.body));
-  print(todos.toString());
-
+  Uri uri = Uri.parse("https://dummyjson.com/todos/add");
+  http.Response response2 = await http.post(uri,
+      headers: <String, String>{
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+      body: jsonEncode({
+        "todo": 'Use DummyJSON in the project',
+        "completed": false,
+        "userId": 5,
+      }));
+  print(response2.body);
   // !DELETE
   /*http.Response response = await http.delete(
     Uri.parse("$uri/1"),
