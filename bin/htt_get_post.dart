@@ -4,7 +4,7 @@ import 'package:htt_get_post/models/user_model.dart';
 import 'package:http/http.dart' as http;
 
 void main(List<String> args) async {
-  String baseUrl = "https://dummyjson.com/todos?limit=3&skip=10";
+  String baseUrl = "https://dummyjson.com/todos/user/5";
   Uri uri = Uri.parse("$baseUrl");
   http.Response response2 = await http.get(uri);
   TodoModel todos = TodoModel.fromJson(jsonDecode(response2.body));
