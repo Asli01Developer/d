@@ -4,10 +4,11 @@ import 'package:htt_get_post/models/user_model.dart';
 import 'package:http/http.dart' as http;
 
 void main(List<String> args) async {
-  String baseUrl = "https://dummyjson.com/todos";
+  String baseUrl = "https://dummyjson.com/todos/1";
   Uri uri = Uri.parse("$baseUrl");
   http.Response response2 = await http.get(uri);
-  TodoModel todos = TodoModel.fromJson(jsonDecode(response2.body));
+  User todos = User.fromJson(jsonDecode(response2.body));
+  print(todos.toString());
 
   // !DELETE
   /*http.Response response = await http.delete(
