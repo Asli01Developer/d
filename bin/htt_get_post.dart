@@ -3,13 +3,7 @@ import 'package:http/http.dart' as http;
 
 void main(List<String> args) async {
   Uri uri = Uri.parse("https://dummyjson.com/todos/1");
-  http.Response response2 = await http.put(uri,
-      headers: <String, String>{
-        "Content-Type": "application/json; charset=UTF-8",
-      },
-      body: jsonEncode({
-        "completed": false,
-      }));
+  http.Response response2 = await http.delete(Uri.parse("$uri"));
   print(response2.body);
   // !DELETE
   /*http.Response response = await http.delete(
