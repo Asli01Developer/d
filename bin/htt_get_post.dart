@@ -2,15 +2,13 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 void main(List<String> args) async {
-  Uri uri = Uri.parse("https://dummyjson.com/todos/add");
-  http.Response response2 = await http.post(uri,
+  Uri uri = Uri.parse("https://dummyjson.com/todos/1");
+  http.Response response2 = await http.put(uri,
       headers: <String, String>{
         "Content-Type": "application/json; charset=UTF-8",
       },
       body: jsonEncode({
-        "todo": 'Use DummyJSON in the project',
         "completed": false,
-        "userId": 5,
       }));
   print(response2.body);
   // !DELETE
